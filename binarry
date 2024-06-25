@@ -1,0 +1,43 @@
+def pencarian_biner(mahasiswa, nim_target):
+    rendah = 0
+    tinggi = len(mahasiswa) - 1
+
+    while rendah <= tinggi:
+        tengah = (rendah + tinggi) // 2
+        if mahasiswa[tengah][0] == nim_target:
+            return tengah  # mengembalikan indeks mahasiswa yang ditemukan
+        elif mahasiswa[tengah][0] < nim_target:
+            rendah = tengah + 1
+        else:
+            tinggi = tengah - 1
+
+    return -1  # mengembalikan -1 jika mahasiswa tidak ditemukan
+
+def utama():
+    # Membuat daftar mahasiswa dengan NIM dan nama
+    mahasiswa = [
+        ["10101", "Ahmad"],
+        ["10102", "Budi"],
+        ["10103", "Cici"],
+        ["10104", "Diana"],
+        ["10105", "Eko"],
+        ["10106", "Fajar"],
+        ["10107", "Gita"],
+        ["10108", "Hana"],
+        ["10109", "Ivan"],
+        ["10110", "Joko"]
+    ]
+
+    # Mendapatkan NIM target dari pengguna
+    nim_target = input("Masukkan NIM mahasiswa yang Anda cari: ")
+
+    # Melakukan pencarian biner
+    hasil = pencarian_biner(mahasiswa, nim_target)
+
+    if hasil != -1:
+        print(f"Mahasiswa dengan NIM {nim_target} ditemukan: {mahasiswa[hasil][1]}")
+    else:
+        print("Mahasiswa tidak ditemukan dalam daftar")
+
+if __name__ == "__main__":
+    utama()
