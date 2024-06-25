@@ -1,0 +1,23 @@
+def sequential_search(barang, target_barang):
+    for i, item in enumerate(barang):
+        if item == target_barang:
+            return i  # return the index of the found item
+    return -1  # return -1 if the item is not found
+
+def main():
+    # Create a list of goods
+    barang = ["Nabati", "Pilus", "Permen", "Aqua", "Fanta", "Korek Api", "Kopi", "Rokok"]
+
+    # Get the target item from the user
+    target_barang = input("Masukkan barang yang Anda cari: ")
+
+    # Perform the sequential search
+    result = sequential_search(barang, target_barang)
+
+    if result != -1:
+        print(f"Barang ditemukan pada indeks {result}: {barang[result]}")
+    else:
+        print("Barang tidak ditemukan dalam daftar")
+
+if __name__ == "__main__":
+    main()
